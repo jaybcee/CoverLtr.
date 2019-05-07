@@ -61,7 +61,7 @@ function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, ti
     city: cit,
     province: prov,
     postalCode: postC,
-    title: titl,
+    title: titl+".",
     userposition: pos
   });
 
