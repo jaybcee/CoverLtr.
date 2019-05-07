@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/style.css">
+    <title>CoverLtr.</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">CoverLtr.</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <div class='container pt-5'>
+        <form method="post" action="/upload" enctype="multipart/form-data">
+            <div class=form-row>
+                <div class="form-group col-md-6">
+                    <label for="exampleFormControlFile1">Upload your DOCX Cover Letter with the appropriate
+                        tags!</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name='documentCL' required enctype="multipart/form-data" >
+                    
+                    
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Recruiter Title (no period):</label>
+                    <input type="text" class="form-control" id="inputEmail4" required name="title" placeholder="Mr/Ms...">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="inputEmail4">Recruiter First Name:</label>
+                    <input type="text" class="form-control"  id="fName"  required name="fName" placeholder="Dwight">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Recruiter Last Name:</label>
+                    <input type="text" class="form-control" name="lName" required id="lName" placeholder="Shrute">
+                </div>
+                <div class=" form-group col-md-3">
+                    Search Linkedin For Name
+                    <button type="button" class="btn btn-primary mt-2"  id="findPos">Find Position </button>
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="inputPassword4">Recruiter Position:</label>
+                    <input type="text" class="form-control" required name="positionRec"
+                        placeholder="Assistant to the Regional Manager">
+                </div>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Company Name:</label>
+                    <input type="text" class="form-control" required id="inputEmail4" name="company"
+                        placeholder="Dunder Mifflin">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Position Applied For:</label>
+                    <input type="text" class="form-control" required id="inputEmail4" name="position"
+                        placeholder="Paper Salesman">
+                </div>
+
+
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress2">Street Address</label>
+                <input type="text" class="form-control" required id="inputAddress2" placeholder="1725 Slough Avenue, Suite 1A"
+                    name='street'>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="inputCity">City</label>
+                    <input type="text" name="city"  required class="form-control" id="inputCity" value="Montreal">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">State/Province</label>
+                    <input type="text" name="province" required class="form-control" value="Quebec">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Postal Code</label>
+                    <input type="text" name="postalCode" required class="form-control" id="inputZip" placeholder="H3G 1M8">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Date</label>
+                    <input type="date" name="date" required class="form-control" id="datePicker">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-warning">Reset</button>
+            A DOCX with the correct information will be downloaded. PDF coming soon!
+
+        </form>
+    </div>
+
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+        <a class="navbar-brand" id="jason" href="https://www.linkedin.com/in/jason-botzas-coluni/">Made by Jason
+            Botzas-Coluni</a>
+    </nav>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="../public/script.js"></script>
+</body>
+
+</html>

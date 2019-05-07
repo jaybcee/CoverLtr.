@@ -1,0 +1,18 @@
+{
+  "name": "covaer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "docxtemplater": "^3.10.1",
+    "express": "^4.16.4",
+    "jszip": "^2.6.1",
+    "multer": "^1.4.1"
+  }
+}
