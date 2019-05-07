@@ -1,26 +1,23 @@
-
 {
-  "name": "Coverltr",
+  "name": "coverltr",
   "version": "1.0.0",
-  "description": "This example is so cool.",
-  "main": "web.js",
-  "scripts": {
-    "start": "node main.js",
-    "build": "webpack" 
-  },
-  "keywords": [
-    "example",
-    "heroku"
-  ],
-  "author": "Jason",
-  "license": "MIT",
+  "description": "",
+  "main": "main.js",
   "dependencies": {
     "docxtemplater": "^3.10.1",
     "express": "^4.16.4",
+    "fs": "0.0.1-security",
     "jszip": "^2.6.1",
-    "multer": "^1.4.1"
+    "multer": "^1.4.1",
+    "path": "^0.12.7"
   },
-  "engines": {
-    "node": "10.x"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "start": "node main.js",
+    "build": "webpack",
+    "heroku-postbuild": "echo Skip build on Heroku"
+  },
+  "author": "",
+  "license": "ISC",
+  "heroku-run-build-script": true
 }
