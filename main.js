@@ -98,6 +98,6 @@ function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, ti
   });
 }
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
