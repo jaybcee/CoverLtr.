@@ -4,7 +4,9 @@
   "description": "",
   "main": "main.js",
   "dependencies": {
+    "@nativedocuments/docx-wasm": "^2.2.8-1547344486",
     "docxtemplater": "^3.10.1",
+    "event-stream": "^3.3.4",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
     "jszip": "^2.6.1",

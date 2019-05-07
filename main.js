@@ -5,6 +5,7 @@ var fs = require('fs')
 var path = require('path');
 var JSZip = require('jszip');
 
+
 const storage = multer.diskStorage({ // notice you are calling the multer.diskStorage() method here, not multer()
   destination: function (req, file, cb) {
     cb(null, 'uploads/')
@@ -18,22 +19,27 @@ const upload = multer({ storage }); //provide the return value from
 var app = express()
 app.use('/public', express.static('public'))
 
+app.get('/howto', (req, res) => res.sendFile(__dirname + '/public/howto.html'));
 
 app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 
 
 app.post('/upload', upload.single('documentCL'), function (req, res, next) {
   console.log("goos")
+  if (typeof req.body.pdf != undefined)
+    var makePDF = true
+  else
+    var makePDF = false
   console.log(req.file)
   console.log(req.body)
-  generateDoc(req.file.filename, req.body.date, req.body.fName, req.body.lName, req.body.positionRec, req.body.company, req.body.street, req.body.city, req.body.province, req.body.postalCode, req.body.title, req.body.position, res)
+  generateDoc(req.file.filename, req.body.date, req.body.fName, req.body.lName, req.body.positionRec, req.body.company, req.body.street, req.body.city, req.body.province, req.body.postalCode, req.body.title, req.body.position, res, makePDF)
 
 })
 
 
 
 
-function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, titl, pos, sender) {
+function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, titl, pos, sender, pdf) {
 
 
   var content = fs
@@ -93,9 +99,10 @@ function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, ti
     .generate({ type: 'nodebuffer' });
 
   // buf is a nodejs buffer, you can either write it to a file or do anything else with it.
-  fs.writeFileSync(path.resolve(__dirname + '/out', f + '_out.docx'), buf);
-  sender.download(path.resolve(__dirname + '/out', f + '_out.docx'), function (err, data) {
+  fs.writeFileSync(path.resolve(__dirname + '/out', f+'_'+comp + '_out.docx'), buf);
+  sender.download(path.resolve(__dirname + '/out', f+'_'+comp + '_out.docx'), function (err, data) {
   });
+  console.log("generating DOCX!")
 }
 
 const port = process.env.PORT || 3000;

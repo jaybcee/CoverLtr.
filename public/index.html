@@ -16,7 +16,7 @@
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">CoverLtr.</a>
+        <a class="navbar-brand" href="../">CoverLtr.</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="../howto">How to</a>
                 </li>
 
             </ul>
@@ -37,7 +37,7 @@
     </nav>
 
 
-    <div class='container pt-5'>
+    <div class='container py-5 my-4'>
         <form method="post" action="/upload" enctype="multipart/form-data">
             <div class=form-row>
                 <div class="form-group col-md-6">
@@ -113,9 +113,10 @@
                     <input type="date" name="date" required class="form-control" id="datePicker">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit"  class="btn btn-primary">Generate DOCX</button>
+            <!-- <button type="submit" name= "pdf" class="btn btn-outline-success">Generate PDF</button> -->
             <button type="reset" class="btn btn-warning">Reset</button>
-            A DOCX with the correct information will be downloaded. PDF coming soon!
+            A DOCX with the correct information will be downloaded! 
 
         </form>
     </div>
