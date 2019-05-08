@@ -52,9 +52,9 @@ function generateDoc(f, req, res) {
 
   //new
   if (req.body.positionBody === "undefined")
-    posBody = req.body.position
+    var posBody = req.body.position
   else
-    posBody = req.body.positionBody
+   var posBody = req.body.positionBody
 
   //set the templateVariables
   doc.setData({
