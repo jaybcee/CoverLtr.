@@ -6,16 +6,21 @@
     transition: .2s linear;
 }
 
-#mform{
+.mform{
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
-  border: 2px solid;
 }
 
 body{
     background-color: teal;
 }
 
+#whiteMe{
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+
+  
+}
 
 
 
