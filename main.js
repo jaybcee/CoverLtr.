@@ -51,7 +51,7 @@ function generateDoc(f, req, res) {
   doc.loadZip(zip);
 
   //new
-  if (req.body.positionBody === "undefined")
+  if (req.body.positionBody === "undefined" ||req.body.positionBody === "" || req.body.positionBody === " " )
     var posBody = req.body.position
   else
    var posBody = req.body.positionBody
