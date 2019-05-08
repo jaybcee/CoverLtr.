@@ -9,11 +9,11 @@ $(document).ready(function () {
 
     $('#datePicker').val(today);
 
-    
-    
 
 
-    
+
+
+
 
     $("#findPos").click(function () {
         var win = window.open('https://www.linkedin.com/search/results/all/?keywords=' + $('#fName').val() + '%20' + $('#lName').val(), '_blank');
@@ -25,6 +25,14 @@ $(document).ready(function () {
             alert('Please allow popups for this website');
         }
     });
+
+    $("#copyLC").click(function () {
+        if ($("#inputOG").val() != "" || $("#inputOG").val() !== "undefined")
+            $("#inputCopy").val($("#inputOG").val().toLowerCase())
+        else
+            console.log("you done goofed")
+    });
+
 
 
 

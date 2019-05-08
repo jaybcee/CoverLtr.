@@ -32,14 +32,14 @@ app.post('/upload', upload.single('documentCL'), function (req, res, next) {
     var makePDF = false
   console.log(req.file)
   console.log(req.body)
-  generateDoc(req.file.filename, req.body.date, req.body.fName, req.body.lName, req.body.positionRec, req.body.company, req.body.street, req.body.city, req.body.province, req.body.postalCode, req.body.title, req.body.position, res, makePDF)
+  generateDoc(req.file.filename, req, res)
 
 })
 
 
 
 
-function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, titl, pos, sender, pdf) {
+function generateDoc(f, req, res) {
 
 
   var content = fs
@@ -50,19 +50,26 @@ function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, ti
   var doc = new Docxtemplater();
   doc.loadZip(zip);
 
+  //new
+  if (req.body.positionBody === "undefined")
+    posBody = req.body.position
+  else
+    posBody = req.body.positionBody
+
   //set the templateVariables
   doc.setData({
-    day: dat,
-    fName: fnam,
-    lName: lnam,
-    positionRec: poRec,
-    company: comp,
-    address_street: strt,
-    city: cit,
-    province: prov,
-    postalCode: postC,
-    title: titl+".",
-    userposition: pos
+    day: req.body.date,
+    fName: req.body.fName,
+    lName: req.body.lName,
+    positionRec: req.body.positionRec,
+    company: req.body.company,
+    address_street: req.body.street,
+    city: req.body.city,
+    province: req.body.province,
+    postalCode: req.body.postalCode,
+    title: req.body.title + ".",
+    userposition: req.body.position,
+    userpositionBody: posBody,
   });
 
   /*
@@ -99,8 +106,8 @@ function generateDoc(f, dat, fnam, lnam, poRec, comp, strt, cit, prov, postC, ti
     .generate({ type: 'nodebuffer' });
 
   // buf is a nodejs buffer, you can either write it to a file or do anything else with it.
-  fs.writeFileSync(path.resolve(__dirname + '/out', f+'_'+comp + '_out.docx'), buf);
-  sender.download(path.resolve(__dirname + '/out', f+'_'+comp + '_out.docx'), function (err, data) {
+  fs.writeFileSync(path.resolve(__dirname + '/out', f + '_' + req.body.company + '_out.docx'), buf);
+  res.download(path.resolve(__dirname + '/out', f + '_' + req.body.company + '_out.docx'), function (err, data) {
   });
   console.log("generating DOCX!")
 }
